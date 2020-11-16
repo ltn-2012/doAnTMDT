@@ -1,0 +1,165 @@
+﻿@model IEnumerable<doAnTMDT.Models.Phone>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Index</h2>*@
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhonePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhonePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PhoneID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PhoneID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PhoneID })
+            </td>
+        </tr>
+    }
+
+</table>*@
+
+<div>
+    <div class="container view_phone_wrapper">
+        <div class="banner_top ">
+            <div class="slideshow-container row" style="margin-left:0px !important">
+                <div class="nav_wrapper col-sm-2 col-md-4 col-lg-4">
+                    <p class="sp_list">Danh mục sản phẩm</p>
+                    @using (Html.BeginForm("LoadDienThoaiTheoDanhMuc", "Phone"))
+                    {
+                        <input hidden="hidden" type="text" name="name" value="Điện thoại" />
+                        <input class="input_cate" type="submit" value="Điện thoại" />
+                    }
+                    @using (Html.BeginForm("LoadDienThoaiTheoDanhMuc", "Phone"))
+                    {
+                        <input hidden="hidden" type="text" name="name" value="Iphone" />
+                        <input class="input_cate" type="submit" value="Iphone" />
+                    }
+                    @using (Html.BeginForm("LoadDienThoaiTheoDanhMuc", "Phone"))
+                    {
+                        <input hidden="hidden" type="text" name="name" value="Máy tính bảng" />
+                        <input class="input_cate" type="submit" value="Máy tính bảng" />
+                    }
+                    @using (Html.BeginForm("LoadDienThoaiTheoDanhMuc", "Phone"))
+                    {
+                        <input hidden="hidden" type="text" name="name" value="Phụ kiện" />
+                        <input class="input_cate" type="submit" value="Phụ kiện" />
+                    }
+                    @using (Html.BeginForm("LoadDienThoaiTheoDanhMuc", "Phone"))
+                    {
+                        <input hidden="hidden" type="text" name="name" value="Linh kiện" />
+                        <input class="input_cate" type="submit" value="Phụ kiện" />
+                    }
+
+
+                </div>
+                <div class="col-sm-8 col-md-8 col-lg-8" style="padding:0px;">
+                    <ul class="container" style="padding:0px;margin:0">
+                        <li><img src="~/Content/Images/banner1.jpg"></li>
+                        <li><img src="~/Content/Images/banner2.jpg"></li>
+                        <li><img src="~/Content/Images/banner3.jpg"></li>
+                        <li><img src="~/Content/Images/banner4.jpg"></li>
+                        <li><img src="~/Content/Images/banner5.jpg"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row row_phone">
+                @ViewBag.nullPhone
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        @*<div class="card item_phone">
+                                <a href="@Url.Action("Details", "Phone", new { id = item.PhoneID })">
+                                    <img class="img_phone" src="@Url.Content(item.Image)" />
+                                </a>
+
+                                <div class="name_phone">@Html.DisplayFor(modelItem => item.PhoneName)</div>
+                                <div class="price_phone">
+                                    <a href="/ShoppingCart/AddToCart/@item.PhoneID" class="glyphicon glyphicon-shopping-cart">
+                                    </a>
+                                    @Html.DisplayFor(modelItem => item.PhonePrice, ".ToString(N0)")&dstrok;
+                                </div>
+                            </div>*@
+                        <div class="phone-item">
+                            <div class="product-block">
+                                <div class="left-block">
+                                    <a class="product_img_link" target="_blank" href="@Url.Action("Details", "Phone", new { id = item.PhoneID })" title="Phone">
+                                        <img class="img-responsive" src="@Url.Content(item.Image)" border="0" alt="banner" style="height:250px;width:auto" />
+                                    </a>
+                                    <a target="_blank" href="@Url.Action("Details", "Phone", new { id = item.PhoneID })" class="quick-view btn-tooltip">
+                                        <i class="glyphicon glyphicon-eye-open"></i>
+                                    </a>
+                                    @*<span class="label-new label">New</span>*@
+                                </div>
+                                <div class="right-block">
+                                    <div class="product-meta">
+                                        <h5 class="name">
+                                            <a target="_blank" href="@Url.Action("Details", "Phone", new { id = item.PhoneID })" class="product-name">@Html.DisplayFor(modelItem => item.PhoneName)</a>
+                                        </h5>
+                                        <div class="content_price">
+                                            <span class="price product-price">
+                                                @Html.DisplayFor(modelItem => item.PhonePrice)&#36
+                                            </span>
+                                            <span class="old-price product-price">999,999&#36</span>
+                                            <span class="price-percent-reduction">30%</span>
+                                        </div>
+                                        <div class="functional-buttons clearfix">
+                                            <a target="_parent" href="/ShoppingCart/AddToCart/@item.PhoneID" class="button ajax_add_to_cart_button"><span>Add to cart</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

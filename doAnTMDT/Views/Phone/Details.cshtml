@@ -1,0 +1,67 @@
+﻿@model doAnTMDT.Models.Phone
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Phone</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhonePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhonePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhoneID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
